@@ -1,0 +1,13 @@
+name: acdt_mafia_weekly_study
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - statsmodels
+  - pytorch
+  - torchvision
+  - torchaudio
