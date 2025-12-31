@@ -6,6 +6,32 @@ def set_seed(seed: int = 42):
     random.seed(seed)
     np.random.seed(seed)
 
+class Model:
+    def __init__(self, learning_rate, batch_size, epochs):
+        self.learning_rate = learning_rate
+        self.batch_size = batch_size
+        self.epochs = epochs
+
+    def fit(self, X, y):
+        """
+        # To-Do
+        
+        - To regress y = a + b x, implement gradient descent by applying following equations:
+            1. a = a - lr*(∂MSE/∂a)
+            2. b = b - lr*(∂MSE/∂b)
+        
+        - Implement BGD, SGD, mini-batch GD
+        - Print out computed \hat{a}, \hat{b}
+        """
+        a = 0 # Y INTERCEPT
+        b = 0 # COEFFICIENT
+        for epoch in range(self.epochs):
+            pass
+    
+    def predict(self, X, y):
+        pass
+
+
 def main():
     # Parse arguments
     parser = argparse.ArgumentParser()
@@ -20,6 +46,7 @@ def main():
     # Main code
     set_seed(42)
 
+    ## Data generation
     x = np.linspace(-2, 2, 200)
     u = np.random.normal(0, 0.1, 200)
     y = 0.8 + 0.7*x + u
@@ -28,20 +55,13 @@ def main():
     batch_size = args.batch_size
     epochs = args.epoch
 
-    a = 0 # Y INTERCEPT
-    b = 0 # COEFFICIENT
+    ## Model
+    model = Model(learning_rate=lr,
+                  batch_size=batch_size, 
+                  epochs=epochs)
 
-    for epoch in range(epochs):
-        pass
-        """
-        # To-Do
-        
-        - Implement gradient descent by applying following equations:
-            1. a = a - lr*(∂MSE/∂a)
-            2. b = b - lr*(∂MSE/∂b)
-        
-        - Implement BGD, SGD, mini-batch GD
-        """
+    model.fit(x,y)
+
 
 if __name__ == "__main__":
     main()
